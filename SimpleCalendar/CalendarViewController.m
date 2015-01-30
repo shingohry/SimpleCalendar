@@ -45,7 +45,7 @@ static NSString * const ReuseIdentifier = @"Cell";
 
 static NSUInteger const DaysPerWeek = 7;
 
-static CGFloat const CellMargin = 4.0f;
+static CGFloat const CellMargin = 2.0f;
 
 @interface CalendarViewController ()
 
