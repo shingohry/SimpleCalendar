@@ -16,19 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
-                                                                   fromDate:[NSDate date]];
-    components.month  = 2;
-    components.day = 15;
-    NSDate *day15 = [[NSCalendar currentCalendar] dateFromComponents:components];
-    
-    NSInteger ordinality = [[NSCalendar currentCalendar] ordinalityOfUnit:NSDayCalendarUnit
-                                                                             inUnit:NSYearCalendarUnit
-                                                                            forDate:day15];
-    NSLog(@"day15:%@", day15);
-    NSLog(@"ordinality:%zd", ordinality);
-    
     return YES;
 }
 

@@ -126,8 +126,8 @@ static CGFloat const CellMargin = 2.0f;
 - (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath
 {
     // calculate the ordinal number of first day
-    NSInteger ordinalityOfFirstDay = [[NSCalendar currentCalendar] ordinalityOfUnit:NSDayCalendarUnit
-                                                                             inUnit:NSWeekCalendarUnit
+    NSInteger ordinalityOfFirstDay = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay
+                                                                             inUnit:NSCalendarUnitWeekOfMonth
                                                                             forDate:self.firstDateOfMonth];
     
     // difference between "indexPath.item" and "day number of first day"
@@ -146,8 +146,8 @@ static CGFloat const CellMargin = 2.0f;
      numberOfItemsInSection:(NSInteger)section
 {
     // calculate number of weeks
-    NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSWeekCalendarUnit
-                                                              inUnit:NSMonthCalendarUnit
+    NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
+                                                              inUnit:NSCalendarUnitMonth
                                                              forDate:self.firstDateOfMonth];
     NSUInteger numberOfWeeks = rangeOfWeeks.length;
     NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
