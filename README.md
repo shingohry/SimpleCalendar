@@ -1,2 +1,3 @@
 # SimpleCalendar
-Calendar UI implementation sample
+- Calendar UI implementation sample
+- Using UICollectionView
