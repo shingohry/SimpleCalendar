@@ -130,7 +130,7 @@ static CGFloat const CellMargin = 2.0f;
                                                                              inUnit:NSCalendarUnitWeekOfMonth
                                                                             forDate:self.firstDateOfMonth];
     
-    // difference between "indexPath.item" and "day number of first day"
+    // calculate the difference between "day number of cell at indexPath" and "day number of first day"
     NSDateComponents *dateComponents = [NSDateComponents new];
     dateComponents.day = indexPath.item - (ordinalityOfFirstDay - 1);
     
@@ -160,10 +160,9 @@ static CGFloat const CellMargin = 2.0f;
     DayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ReuseIdentifier
                                                               forIndexPath:indexPath];
     
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:NSCalendarUnitDay
-                                               fromDate:[self dateForCellAtIndexPath:indexPath]];
-    cell.label.text = [NSString stringWithFormat:@"%zd", components.day];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"d";
+    cell.label.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
     
     return cell;
 }
